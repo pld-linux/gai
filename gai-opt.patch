@@ -1,0 +1,11 @@
+--- gai-0.5.0pre6/gai/Makefile.in.orig	2003-11-10 20:18:41.000000000 +0100
++++ gai-0.5.0pre6/gai/Makefile.in	2003-12-06 23:11:08.440814408 +0100
+@@ -2,7 +2,7 @@
+ # Makefile for the General Applet Interface
+ 
+ # @GNOME_24@ - More broken than ever.
+-CFLAGS = -Wall -O3 -D@HOST@ @GL@ @GTK@ @GNOME@ @GTK_CFLAGS@ @GNOME_CFLAGS@ @GL_CFLAGS@ -DVERSION="\"@GAI_VERSION@\""
++CFLAGS = -Wall $(OPT) -fPIC -D@HOST@ @GL@ @GTK@ @GNOME@ @GTK_CFLAGS@ @GNOME_CFLAGS@ @GL_CFLAGS@ -DVERSION="\"@GAI_VERSION@\""
+ LDFLAGS = -fPIC -shared -Wl,-soname=libgai.so.@GAI_MAJOR@ @GTK_LIBS@ @GNOME_LIBS@ @GL_LIBS@
+ CC = @CC@
+ OBJS = gai.o gai-debug.o gai-draw.o gai-info.o gai-gnome.o gai-dockapp.o gai-settings.o gai-pref.o @GNOME_CONFIG@ 
