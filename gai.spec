@@ -15,6 +15,7 @@ Group:		X11/Libraries
 Source0:	http://dl.sourceforge.net/sourceforge/gai/%{name}-%{version}.tar.bz2
 # Source0-md5:	29d90cb37fe5341009b27ffd09f871cb
 Patch0:		%{name}-opt.patch
+Patch1:		%{name}-libdir.patch
 URL:		http://gai.sourceforge.net/
 %{?with_sdl:BuildRequires:	SDL-devel >= 1.2}
 BuildRequires:	autoconf >= 2.53
@@ -66,6 +67,7 @@ Pliki nag³ówkowe wymagane do tworzenia programów z u¿yciem GAI.
 %prep
 %setup -q 
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__autoconf}
@@ -82,7 +84,9 @@ Pliki nag³ówkowe wymagane do tworzenia programów z u¿yciem GAI.
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	PREFIX=$RPM_BUILD_ROOT%{_prefix}
+	DESTDIR=$RPM_BUILD_ROOT \
+	PREFIX=%{_prefix} \
+	LIBDIR=%{_libdir}
 
 install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 cp -rf examples/[!C]* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
