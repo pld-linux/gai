@@ -9,7 +9,7 @@ Summary:	General Applet Interface library
 Summary(pl):	Ogólna biblioteka interfejsu apletu
 Name:		gai
 Version:	0.5.7
-Release:	1
+Release:	2
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://dl.sourceforge.net/sourceforge/gai/%{name}-%{version}.tar.bz2
@@ -24,6 +24,8 @@ BuildRequires:	gtk+2-devel >= 2.0
 BuildRequires:	pkgconfig
 %{?with_rox:BuildRequires:	rox >= 2.1}
 BuildRequires:	zlib-devel
+%{?with_gnome:Provides:	gai(gnome) = %{version}-%{release}}
+%{?with_rox:Provides:	gai(rox) = %{version}-%{release}}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_noautoreqdep	libGL.so.1 libGLU.so.1
@@ -42,9 +44,17 @@ co aplet powinien robiæ a nie na jego interfejsie.
 Summary:	Development files for the GAI
 Summary(pl):	Pliki rozwojowe dla GAI
 Group:		X11/Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
+%if %{with gnome}
+Requires:	gnome-panel-devel >= 2.4.0
+Requires:	gai(gnome) = %{version}-%{release}
+Provides:	gai-devel(gnome) = %{version}-%{release}
+%endif
 %{?with_gl:Requires:	gtkglext-devel >= 1.0}
-%{?with_gnome:Requires:	gnome-panel-devel >= 2.4.0}
+%if %{with rox}
+Requires:	gai(rox) = %{version}-%{release}
+Provides:	gai-devel(rox) = %{version}-%{release}
+%endif
 Requires:	gtk+2-devel >= 2.0
 
 %description devel
