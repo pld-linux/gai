@@ -24,6 +24,7 @@ BuildRequires:	autoconf >= 2.53
 BuildRequires:	gtk+2-devel >= 1:2.0
 BuildRequires:	pkgconfig
 %{?with_rox:BuildRequires:	rox >= 2.1}
+%{?with_rox:BuildRequires:	which}
 BuildRequires:	zlib-devel
 %{?with_gnome:Provides:	gai(gnome) = %{version}-%{release}}
 %{?with_rox:Provides:	gai(rox) = %{version}-%{release}}
