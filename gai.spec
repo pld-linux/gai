@@ -2,17 +2,18 @@
 # Conditional build:
 %bcond_without	gl	# without OpenGL support
 %bcond_without	gnome	# without GNOME support
+%bcond_without 	rox	# without ROX support
 %bcond_without	sdl	# without SDL support
 #
 Summary:	General Applet Interface library
 Summary(pl):	Ogólna biblioteka interfejsu apletu
 Name:		gai
-Version:	0.5.2
+Version:	0.5.3
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://dl.sourceforge.net/gai/%{name}-%{version}.tar.bz2
-# Source0-md5:	a9d53513b002cedabf2a1ee29ad2d712
+# Source0-md5:	732016d4cf133a50d2226153db395b85
 Patch0:		%{name}-opt.patch
 URL:		http://gai.sourceforge.net/
 %{?with_sdl:BuildRequires:	SDL-devel >= 1.2}
@@ -21,6 +22,7 @@ BuildRequires:	autoconf >= 2.53
 %{?with_gnome:BuildRequires:	gnome-panel-devel >= 2.4.0}
 BuildRequires:	gtk+2-devel >= 2.0
 BuildRequires:	pkgconfig
+%{?with_rox:BuildRequires:	rox >= 2.1}
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -59,7 +61,8 @@ Pliki nag³ówkowe wymagane do tworzenia programów z u¿yciem GAI.
 %{__autoconf}
 %configure \
 	%{!?with_gl:--disable-gl} \
-	%{!?with_gnome:--disable-gnome}
+	%{!?with_gnome:--disable-gnome} \
+	%{!?with_rox:--disable-rox} \
 	%{!?with_sdl:--disable-sdl}
 
 %{__make} \
@@ -82,12 +85,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog README README.gai THANKS TODO WINDOWMANAGERS docs/FAQ.html
+%doc AUTHORS ChangeLog README README.gai THANKS TODO WINDOWMANAGERS 
 %attr(755,root,root) %{_libdir}/libgai.so.*.*.*
 
 %files devel
 %defattr(644,root,root,755)
-%doc docs/referenceguide.html
+%doc docs/*
 %attr(755,root,root) %{_libdir}/libgai.so
 %{_includedir}/gai
 %{_pkgconfigdir}/gai.pc
