@@ -21,7 +21,7 @@ URL:		http://gai.sourceforge.net/
 BuildRequires:	autoconf >= 2.53
 %{?with_gl:BuildRequires:	gtkglext-devel >= 1.0}
 %{?with_gnome:BuildRequires:	gnome-panel-devel >= 2.4.0}
-BuildRequires:	gtk+2-devel >= 2.0
+BuildRequires:	gtk+2-devel >= 1:2.0
 BuildRequires:	pkgconfig
 %{?with_rox:BuildRequires:	rox >= 2.1}
 BuildRequires:	zlib-devel
