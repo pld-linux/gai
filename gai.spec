@@ -8,12 +8,12 @@
 Summary:	General Applet Interface library
 Summary(pl):	Ogólna biblioteka interfejsu apletu
 Name:		gai
-Version:	0.5.7
-Release:	2
+Version:	0.5.8
+Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://dl.sourceforge.net/sourceforge/gai/%{name}-%{version}.tar.bz2
-# Source0-md5:	c25343016e3390c063eb3de91d6f5e4f
+# Source0-md5:	29d90cb37fe5341009b27ffd09f871cb
 Patch0:		%{name}-opt.patch
 URL:		http://gai.sourceforge.net/
 %{?with_sdl:BuildRequires:	SDL-devel >= 1.2}
