@@ -2,7 +2,7 @@
 # Conditional build:
 %bcond_without	gl	# without OpenGL support
 %bcond_without	gnome	# without GNOME support
-%bcond_without 	rox	# without ROX support
+%bcond_without	rox	# without ROX support
 %bcond_without	sdl	# without SDL support
 #
 Summary:	General Applet Interface library
