@@ -1,0 +1,21 @@
+--- gai-0.5.8/gai/Makefile.in.orig	2004-10-19 22:23:18.000000000 +0200
++++ gai-0.5.8/gai/Makefile.in	2004-10-19 22:25:57.000000000 +0200
+@@ -20,12 +20,12 @@
+ install: libgai@LIB_END@
+ 	mkdir -p $(DESTDIR)$(PREFIX)/include/gai
+ 	cp gai.h $(DESTDIR)$(PREFIX)/include/gai/
+-	mkdir -p $(DESTDIR)$(PREFIX)/lib
+-	cp libgai@LIB_END@ $(DESTDIR)$(PREFIX)/lib/libgai@LIB_START@.@GAI_MAJOR@.@GAI_MINOR@.@GAI_MICRO@@LIB_DARWIN@
+-	ln -sf libgai@LIB_START@.@GAI_MAJOR@.@GAI_MINOR@.@GAI_MICRO@@LIB_DARWIN@ $(DESTDIR)$(PREFIX)/lib/libgai@LIB_START@.@GAI_MAJOR@@LIB_DARWIN@
+-	ln -sf libgai@LIB_START@.@GAI_MAJOR@@LIB_DARWIN@ $(DESTDIR)$(PREFIX)/lib/libgai@LIB_END@
+-	mkdir -p $(DESTDIR)$(PREFIX)/lib/pkgconfig
+-	cp ../gai.pc $(DESTDIR)$(PREFIX)/lib/pkgconfig/
++	mkdir -p $(DESTDIR)$(LIBDIR)
++	cp libgai@LIB_END@ $(DESTDIR)$(LIBDIR)/libgai@LIB_START@.@GAI_MAJOR@.@GAI_MINOR@.@GAI_MICRO@@LIB_DARWIN@
++	ln -sf libgai@LIB_START@.@GAI_MAJOR@.@GAI_MINOR@.@GAI_MICRO@@LIB_DARWIN@ $(DESTDIR)$(LIBDIR)/libgai@LIB_START@.@GAI_MAJOR@@LIB_DARWIN@
++	ln -sf libgai@LIB_START@.@GAI_MAJOR@@LIB_DARWIN@ $(DESTDIR)$(LIBDIR)/libgai@LIB_END@
++	mkdir -p $(DESTDIR)$(LIBDIR)/pkgconfig
++	cp ../gai.pc $(DESTDIR)$(LIBDIR)/pkgconfig/
+ uninstall:
+ 	rm -f $(DESTDIR)$(PREFIX)/include/gai/gai.h
+ 	rmdir $(DESTDIR)$(PREFIX)/include/gai
