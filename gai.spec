@@ -2,25 +2,26 @@
 # Conditional build:
 %bcond_without	gl	# without OpenGL support
 %bcond_without	gnome	# without GNOME support
+%bcond_without	sdl	# without SDL support
 #
 Summary:	General Applet Interface library
 Summary(pl):	Ogólna biblioteka interfejsu apletu
 Name:		gai
 Version:	0.5.0
-%define _pre    pre6
-Release:	0.%{_pre}.1
+Release:	1
 License:	LGPL
 Group:		X11/Libraries
-Source0:	http://dl.sourceforge.net/gai/%{name}-%{version}%{_pre}.tar.bz2
-# Source0-md5:	379c23c0448e24d3dbb330b2e29e37ca
+Source0:	http://dl.sourceforge.net/gai/%{name}-%{version}.tar.bz2
+# Source0-md5:	952034c5f753de7d4a07f43351206614
 Patch0:		%{name}-opt.patch
-Patch1:		%{name}-link.patch
 URL:		http://gai.sourceforge.net/
+%{?with_sdl:BuildRequires:	SDL-devel >= 1.2}
 BuildRequires:	autoconf >= 2.53
 %{?with_gl:BuildRequires:	gtkglext-devel >= 1.0}
 %{?with_gnome:BuildRequires:	gnome-panel-devel >= 2.4.0}
 BuildRequires:	gtk+2-devel >= 2.0
 BuildRequires:	pkgconfig
+BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_noautoreqdep	libGL.so.1 libGLU.so.1
@@ -51,15 +52,15 @@ Header files required for development using GAI.
 Pliki nag³ówkowe wymagane do tworzenia programów z u¿yciem GAI.
 
 %prep
-%setup -q -n %{name}-%{version}%{_pre}
+%setup -q 
 %patch0 -p1
-%patch1 -p1
 
 %build
 %{__autoconf}
 %configure \
-	%{!?with_gl:--without-gl} \
-	%{!?with_gnome:--without-gnome}
+	%{!?with_gl:--disable-gl} \
+	%{!?with_gnome:--disable-gnome}
+	%{!?with_sdl:--disable-sdl}
 
 %{__make} \
 	OPT="%{rpmcflags}"
@@ -81,7 +82,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog README THANKS TODO WINDOWMANAGERS docs/FAQ.html
+%doc AUTHORS ChangeLog README README.gai THANKS TODO WINDOWMANAGERS docs/FAQ.html
 %attr(755,root,root) %{_libdir}/libgai.so.*.*.*
 
 %files devel
