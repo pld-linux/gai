@@ -12,7 +12,7 @@ Version:	0.5.6
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
-Source0:	http://dl.sourceforge.net/gai/%{name}-%{version}.tar.bz2
+Source0:	http://switch.dl.sourceforge.net/sourceforge/gai/%{name}-%{version}.tar.bz2
 # Source0-md5:	7d14b0e6fe8f431d852b4cd70bc30fe9
 Patch0:		%{name}-opt.patch
 URL:		http://gai.sourceforge.net/
