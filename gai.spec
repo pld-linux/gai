@@ -14,7 +14,9 @@ Group:		X11/Libraries
 Source0:	http://dl.sourceforge.net/gai/%{name}-%{version}%{_pre}.tar.bz2
 # Source0-md5:	379c23c0448e24d3dbb330b2e29e37ca
 Patch0:		%{name}-opt.patch
-URL:		http://gai.sourceforge.net
+Patch1:		%{name}-link.patch
+URL:		http://gai.sourceforge.net/
+BuildRequires:	autoconf >= 2.53
 %{?with_gl:BuildRequires:	gtkglext-devel >= 1.0}
 %{?with_gnome:BuildRequires:	gnome-panel-devel >= 2.4.0}
 BuildRequires:	gtk+2-devel >= 2.0
@@ -51,8 +53,10 @@ Pliki nag³ówkowe wymagane do tworzenia programów z u¿yciem GAI.
 %prep
 %setup -q -n %{name}-%{version}%{_pre}
 %patch0 -p1
+%patch1 -p1
 
 %build
+%{__autoconf}
 %configure \
 	%{!?with_gl:--without-gl} \
 	%{!?with_gnome:--without-gnome}
