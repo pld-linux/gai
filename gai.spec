@@ -76,7 +76,7 @@ Pliki nag³ówkowe wymagane do tworzenia programów z u¿yciem GAI.
 	%{!?with_sdl:--disable-sdl}
 
 %{__make} \
-	OPT="%{rpmcflags}"
+	OPT="%{rpmcflags} -fPIC"
 
 %install
 rm -rf $RPM_BUILD_ROOT
