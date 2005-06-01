@@ -23,7 +23,6 @@ BuildRequires:	autoconf >= 2.53
 %{?with_gnome:BuildRequires:	gnome-panel-devel >= 2.4.0}
 BuildRequires:	gtk+2-devel >= 1:2.0
 BuildRequires:	pkgconfig
-BuildRequires:	popt-devel
 %{?with_rox:BuildRequires:	rox >= 2.1}
 %{?with_rox:BuildRequires:	which}
 BuildRequires:	zlib-devel
