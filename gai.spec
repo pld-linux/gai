@@ -6,7 +6,7 @@
 %bcond_without	sdl	# without SDL support
 #
 Summary:	General Applet Interface library
-Summary(pl):	OgÛlna biblioteka interfejsu apletu
+Summary(pl.UTF-8):   Og√≥lna biblioteka interfejsu apletu
 Name:		gai
 Version:	0.5.8
 Release:	1
@@ -37,14 +37,14 @@ This library is intended to simplify the development and use of
 dockapps. With this library the programmer can focus on what the
 applet shall do, not on the interface.
 
-%description -l pl
-Zamiarem tej biblioteki jest uproszczenie tworzenia i uøywania
-apletÛw. Przy pomocy tej biblioteki programista moøe siÍ skupiÊ na tym
-co aplet powinien robiÊ a nie na jego interfejsie.
+%description -l pl.UTF-8
+Zamiarem tej biblioteki jest uproszczenie tworzenia i u≈ºywania
+aplet√≥w. Przy pomocy tej biblioteki programista mo≈ºe siƒô skupiƒá na tym
+co aplet powinien robiƒá a nie na jego interfejsie.
 
 %package devel
 Summary:	Development files for the GAI
-Summary(pl):	Pliki rozwojowe dla GAI
+Summary(pl.UTF-8):   Pliki rozwojowe dla GAI
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 %if %{with gnome}
@@ -62,8 +62,8 @@ Requires:	gtk+2-devel >= 2.0
 %description devel
 Header files required for development using GAI.
 
-%description devel -l pl
-Pliki nag≥Ûwkowe wymagane do tworzenia programÛw z uøyciem GAI.
+%description devel -l pl.UTF-8
+Pliki nag≈Ç√≥wkowe wymagane do tworzenia program√≥w z u≈ºyciem GAI.
 
 %prep
 %setup -q 
