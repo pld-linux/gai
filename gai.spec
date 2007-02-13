@@ -6,7 +6,7 @@
 %bcond_without	sdl	# without SDL support
 #
 Summary:	General Applet Interface library
-Summary(pl.UTF-8):   Ogólna biblioteka interfejsu apletu
+Summary(pl.UTF-8):	Ogólna biblioteka interfejsu apletu
 Name:		gai
 Version:	0.5.8
 Release:	1
@@ -44,7 +44,7 @@ co aplet powinien robić a nie na jego interfejsie.
 
 %package devel
 Summary:	Development files for the GAI
-Summary(pl.UTF-8):   Pliki rozwojowe dla GAI
+Summary(pl.UTF-8):	Pliki rozwojowe dla GAI
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 %if %{with gnome}
