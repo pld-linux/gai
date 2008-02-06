@@ -1,7 +1,7 @@
 #
 # Conditional build:
-%bcond_without	gl	# without OpenGL support
 %bcond_without	gnome	# without GNOME support
+%bcond_without	opengl	# without OpenGL support
 %bcond_without	rox	# without ROX support
 %bcond_without	sdl	# without SDL support
 #
@@ -19,7 +19,7 @@ Patch1:		%{name}-libdir.patch
 URL:		http://gai.sourceforge.net/
 %{?with_sdl:BuildRequires:	SDL-devel >= 1.2}
 BuildRequires:	autoconf >= 2.53
-%{?with_gl:BuildRequires:	gtkglext-devel >= 1.0}
+%{?with_opengl:BuildRequires:	gtkglext-devel >= 1.0}
 %{?with_gnome:BuildRequires:	gnome-panel-devel >= 2.4.0}
 BuildRequires:	gtk+2-devel >= 1:2.0
 BuildRequires:	pkgconfig
@@ -52,7 +52,7 @@ Requires:	gnome-panel-devel >= 2.4.0
 Requires:	gai(gnome) = %{version}-%{release}
 Provides:	gai-devel(gnome) = %{version}-%{release}
 %endif
-%{?with_gl:Requires:	gtkglext-devel >= 1.0}
+%{?with_opengl:Requires:	gtkglext-devel >= 1.0}
 %if %{with rox}
 Requires:	gai(rox) = %{version}-%{release}
 Provides:	gai-devel(rox) = %{version}-%{release}
@@ -73,7 +73,7 @@ Pliki nagłówkowe wymagane do tworzenia programów z użyciem GAI.
 %build
 %{__autoconf}
 %configure \
-	%{!?with_gl:--disable-gl} \
+	%{!?with_opengl:--disable-gl} \
 	%{!?with_gnome:--disable-gnome} \
 	%{!?with_rox:--disable-rox} \
 	%{!?with_sdl:--disable-sdl}
